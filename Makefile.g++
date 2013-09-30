@@ -1,4 +1,4 @@
-# Generic pimc g++ makefile
+# makefile for cuda c implementation of jackknife resampling
 
 CC      = nvcc
 LD      = nvcc
@@ -12,6 +12,7 @@ HEADERS = jkTools.h
 
 # -------------------------------------------------------------------------------
 all: $(PROG)
+	
 
 # Link
 $(PROG): $(OBJS)
