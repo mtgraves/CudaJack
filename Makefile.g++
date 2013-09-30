@@ -1,0 +1,27 @@
+# Generic pimc g++ makefile
+
+CC      = nvcc
+LD      = nvcc
+
+RM      = /bin/rm -f
+
+PROG    = jk.e
+SOURCE  = jkTools.cu jkDrive.cu
+OBJS    = $(SOURCE:.cu=.o)
+HEADERS = jkTools.h
+
+# -------------------------------------------------------------------------------
+all: $(PROG)
+
+# Link
+$(PROG): $(OBJS)
+	$(LD) $(OBJS) -o $(PROG)
+
+# Compile
+$(OBJS): $(SOURCE) 
+	$(CC)  -c $(SOURCE)
+
+# -------------------------------------------------------------------------------
+
+clean:
+	$(RM) $(PROG) $(OBJS) 
